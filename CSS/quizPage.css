@@ -1,0 +1,35 @@
+body {
+    background: lavender;
+}
+
+body *{
+    box-sizing: border-box;
+}
+.container {
+
+    margin: 0px auto;
+    border: solid;
+    border-radius: 25px;
+    background: whitesmoke;
+    padding: 40px;
+    padding-top: 50px;
+    padding-bottom: 25px;
+
+}
+
+.question-number, .question-header, .quiz-score {
+    text-align: center;
+    position: relative;
+}
+
+#quiz-form{
+    display:block;
+}
+
+.submit-button, .next-button, .restart-button {
+    padding: 10px 24px;
+    border-radius: 2px;
+    position: relative;
+    width: 25%;
+    display: inline-block;
+}

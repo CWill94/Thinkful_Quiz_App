@@ -3,15 +3,17 @@
 
 <head role="banner">
     <meta charset="utf-8">
-    <meta author="Clayton Williams" <meta name="Quiz App" content="Thinkful HTML wireframe" <meta name="viewport" content="width=device-width">
+    <meta author="Clayton Williams" <meta name="Quiz App" content="Thinkful HTML wireframe">
+    <meta name="viewport" content="width=device-width">
     <title>Quiz App</title>
     <link href="CSS/quizPage.css" rel="stylesheet" type="text/css" />
     <link href="CSS/layoutPage.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
 </head>
 
 <body>
     <div class="container">
-        <form id="quiz-form">
+        <form role ="form" id="quiz-form">
             <h1 class = "question-header"></h1>
             <p class = "question-number final-message"></p>
             <p class = "quiz-score"></p>
@@ -25,7 +27,7 @@
                     <button class="restart-button">Restart</button>
         </form>
     </div>
-    <footer>
+    <footer role = "contentinfo">
         <a href = "index.html">Return Home</a>
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

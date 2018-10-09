@@ -7,16 +7,35 @@ const QUIZQUESTIONS =
     },
 
     {
-        question: "What is 2+2?",
-        answers: ["2","4","Fish obviously", "I can't math"],
-        correct: "Fish obviously"
+
+        question:"How many people are there in the world?",
+        answers:["1 billion", "6 billion","7 billiion", "4 billion"],
+        correct:"7 billion"
     },
 
     {
-        question: "How much wood could a wood chuck if a woodchuck could chuck wood?",
-        answers: ["1", "What?", "10", "None"],
-        correct: "1"
+        question:"What is the largest river in the world?",
+        anwers:["Nile","Amazon","Mississippi","Chang Jiang"],
+        correct:"Amazon"
     },
+
+    {
+        question:"What is the highest mountain in the world?",
+        answers: ["K-2", " Mount Everest", "Kangchenjunga", "Lhotse"],
+        correct:"Mount Everest"
+    },
+
+    {
+        question:"Which country is the largest producer of coffee?",
+        answers: ["Italy","England","Brazil","United States"],
+        correct:"Brazil"
+    },
+
+    {
+        question:"Which is the biggest state in the United States",
+        answers:["California","Florida","Texas","Alaska"],
+        correct:"Alaska"
+    }
 
 ];
 let USERSCORE =

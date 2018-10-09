@@ -4,6 +4,7 @@ body {
 
 body *{
     box-sizing: border-box;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 .container {
 
@@ -11,7 +12,6 @@ body *{
     border: solid;
     border-radius: 25px;
     background: whitesmoke;
-    padding: 40px;
     padding-top: 50px;
     padding-bottom: 25px;
 
@@ -32,4 +32,14 @@ body *{
     position: relative;
     width: 25%;
     display: inline-block;
+}
+
+.correct-answer
+{
+    background-color: green;
+}
+
+.incorrect-answer
+{
+    background-color: red;
 }

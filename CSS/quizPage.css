@@ -22,8 +22,8 @@ body *{
     position: relative;
 }
 
-#quiz-form{
-    display:block;
+.quiz-container, .final-container{
+    display:none;
 }
 
 .submit-button, .next-button, .restart-button {

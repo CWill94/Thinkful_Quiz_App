@@ -3,24 +3,64 @@
 
 <head role="banner">
     <meta charset="utf-8">
-    <meta author="Clayton Williams" <meta name="Quiz App" content="Thinkful HTML wireframe" <meta name="viewport" content="width=device-width">
+    <meta author="Clayton Williams">
+    <meta name="Quiz App" content="Thinkful Quiz App using HTML/CSS/JS">
+    <meta name="viewport" content="width=device-width">
     <title>Quiz App</title>
     <link href="CSS/indexPage.css" rel="stylesheet" type="text/css" />
     <link href="CSS/layoutPage.css" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+    <link href = "CSS/quizPage.css" rel = "stylesheet" type="text/css"/>
 </head>
 
 <body>
-    <div class="container">
-        <h1> Description of Quiz </h1>
-        <p> This is a multiple choice quiz, you cannot move on until the question has been answered! </p>
-        <br>
-        <p> At the end of the quiz you will be able to see the results of the quiz, return home, or begin a new quiz.
-            <p>
-                <form action="quiz.html">
-                    <input type="submit" value="Begin Quiz" />
+    <main role = "main">
+        <section class = "begin-quiz" ">
+            <div class="container begin-container">
+                <h1> Description of Quiz </h1>
+                <p> This is a multiple choice quiz, you cannot move on until the question has been answered! </p>
+                <br>
+                <p> At the end of the quiz you will be able to see the results of the quiz, return home, or begin a new quiz.
+                <p>
+                    <form role = "form" class = "begin-quiz">
+                        <label for = "begin-button">Begin Quiz</label>
+                        <br>
+                        <input type="submit" id = "begin-button"  value ="Begin Quiz"/>
+                    </form>
+            </div>
+        </section>
+        <section class = "quiz-section">
+                <div class="container quiz-container">
+                    <form role="form" id="quiz-form">
+                        <h2 class="question-header"></h1>
+                        <p class="question-number"></p>
+                        <p class="quiz-score"></p>
+                        <fieldset>
+                            <legend></legend>
+                            <!-- intention is that on submit it'll toggle the display for the answer and the next button -->
+                        </fieldset>
+                        <!--<button class="next-button" type = "submit">Next</button> -->
+                        <button class="submit-button">Submit</button>
+                        <button class="next-button">Next</button>
+                    </form>
+                </div>
+        </section>
+
+        <section class = "final-results">
+            <div class = "container final-container">
+                <h2 class = "results"></h2>
+                <p class = "final-message"></p>
+                <form role="form" class="restart-quiz">
+                    <label for="restart-button">Retry</label>
+                    <br>
+                    <input type="submit" id="restart-button"  value = "Retry Quiz"/>
                 </form>
+            </div>
+        </section>
+    </main>            
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
                 <script src="Javascript/indexpage.js"></script>
+                <script src="Javascript/quizPage.js"></script>
 </body>
 
 <footer role="contentinfo">

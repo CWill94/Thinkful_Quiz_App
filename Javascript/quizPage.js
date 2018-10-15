@@ -9,19 +9,19 @@ const QUIZQUESTIONS =
     {
 
         question:"How many people are there in the world?",
-        answers:["1 billion", "6 billion","7 billiion", "4 billion"],
+        answers:["1 billion", "6 billion","7 billion", "4 billion"],
         correct:"7 billion"
     },
 
     {
         question:"What is the largest river in the world?",
-        anwers:["Nile","Amazon","Mississippi","Chang Jiang"],
+        answers:["Nile","Amazon","Mississippi","Chang Jiang"],
         correct:"Amazon"
     },
 
     {
         question:"What is the highest mountain in the world?",
-        answers: ["K-2", " Mount Everest", "Kangchenjunga", "Lhotse"],
+        answers: ["K-2", "Mount Everest", "Kangchenjunga", "Lhotse"],
         correct:"Mount Everest"
     },
 
@@ -38,21 +38,21 @@ const QUIZQUESTIONS =
     }
 
 ];
-let USERSCORE =
+var USERSCORE =
 {
     correct: 0,
     incorrect: 0
 };
 
 //on page load
-let start = 0
+var start = 0
 $(confirmQuizLoad(start));
 
 //renders question user must answer in the h1
 function renderQuestion(object)
 {
     let question = object.question;
-    $('h1').html(question);
+    $('.question-header').html(question);
 }
 
 //renders score of user up to the previously answered questions
@@ -81,7 +81,24 @@ function renderChoices(object)
 //helper function that puts answers into a radio button format
 function toRadioButtonFormat(string)
 {
-    return `<input type="radio" class = "choices" name="answer" value="${string}"> ${string}<br>`;
+    return `<label for = '${string}'> ${string}</label>
+            <input type="radio" id = '${string}' class = "choices" name="answer" value="${string}">
+            <br>`;
+}
+
+//evaluatoion of user answer
+function evaluate(userAnswer)
+{
+    let correctAnswer = QUIZQUESTIONS[start].correct;
+
+    if (userAnswer == correctAnswer)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 
 //evaluate
@@ -95,25 +112,15 @@ function submitButton()
         $('.submit-button').prop("disabled",true);
 
         let userAnswer = $('input[name=answer]:checked').val();
-        let correctAnswer = QUIZQUESTIONS[start].correct;
-        let isCorrect;
+
         //Checks if user answer is correct or not
-        if (userAnswer == null) {
+        if (userAnswer == null)
+        {
             alert('Please Select an answer');
             $('.submit-button').prop("disabled", false);
         }
-
-        else if (userAnswer == correctAnswer)
-        {
-            isCorrect = true;
-        }
-        else
-        {
-            isCorrect = false;
-        }
-
-
         // Determines whether or not user answer is correct
+        let isCorrect = evaluate(userAnswer);
         if (isCorrect)
         {
             alert('You chose the correct answer!');
@@ -143,12 +150,10 @@ function nextButton()
         event.preventDefault();
         if(start == QUIZQUESTIONS.length-1)
         {
-            $('.question-header').html(`You got ${USERSCORE.correct} out of ${QUIZQUESTIONS.length}`);
+            $('.results').html(`You got ${USERSCORE.correct} out of ${QUIZQUESTIONS.length}`);
             $('.final-message').html("Think you can do better? Retry the quiz");
-            $('.quiz-score').html("");
-            $('.restart-button').prop("disabled",false);
-            //$('.choices').html(" ");     
-            $('.choices').toggle();
+            $('.quiz-container').toggle();    
+            $('.final-container').toggle();
         }
         else
         {
@@ -162,17 +167,20 @@ function nextButton()
     });
 
 }
+
+//resets userscore, and reloads the quiz back to the first quesiton
 function restartButton()
 {
-    $('.restart-button').on('click',event =>
+    $('.restart-quiz').unbind("click").on('click',event =>
     {
         event.preventDefault();
         USERSCORE.correct = 0;
         USERSCORE.incorrect = 0;
         start = 0;
     
-        $('.next-button').prop("disabled",true);
-        $('.choices').toggle();
+
+        $('.final-results').toggle();
+        $('.quiz-container').toggle();
         confirmQuizLoad(start);
     });
 }
@@ -195,5 +203,4 @@ function confirmQuizLoad(index)
 
     $('.submit-button').prop("disable",false);
     $('.next-button').prop("disabled",true);
-    $('.restart-button').prop("disabled",true);
 }

@@ -116,15 +116,14 @@ function submitButton()
         //Checks if user answer is correct or not
         if (userAnswer == null)
         {
-            alert('Please Select an answer');
+            $(".feedback").html('Please Select an answer');
             $('.submit-button').prop("disabled", false);
         }
         // Determines whether or not user answer is correct
         let isCorrect = evaluate(userAnswer);
         if (isCorrect)
         {
-            alert('You chose the correct answer!');
-            $('footer.p').html("you chose the correct answer");
+            $(".feedback").html('You chose the correct answer!');
             USERSCORE.correct++;
             $('.next-button').prop("disabled", false);
 
@@ -132,8 +131,7 @@ function submitButton()
 
         else if (!isCorrect && userAnswer != null)
         {
-            alert(`You put ${userAnswer} the correct answer was ${QUIZQUESTIONS[start].correct}`);
-            $('footer.p').html("you chose an incorrect answer");
+            $(".feedback").html(`You put ${userAnswer} the correct answer was ${QUIZQUESTIONS[start].correct}`);
             USERSCORE.incorrect++;;
             $('.next-button').prop("disabled", false);
         }
@@ -160,6 +158,7 @@ function nextButton()
 
             start ++;
             $('.submit-button').prop("disabled",false);
+            $(".feedback").html("");
             confirmQuizLoad(start);
 
         }
@@ -178,7 +177,7 @@ function restartButton()
         USERSCORE.incorrect = 0;
         start = 0;
     
-
+        $(".feedback").html("");
         $('.final-results').toggle();
         $('.quiz-container').toggle();
         confirmQuizLoad(start);
@@ -201,6 +200,6 @@ function confirmQuizLoad(index)
     nextButton();
     restartButton();
 
-    $('.submit-button').prop("disable",false);
+    $('.submit-button').prop("disabled",false);
     $('.next-button').prop("disabled",true);
 }

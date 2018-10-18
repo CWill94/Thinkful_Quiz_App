@@ -1,6 +1,6 @@
 function beginQuiz () 
 {
-    $('.begin-quiz').submit(function(event)
+    $('#begin-button').on('click',event =>
     {
         event.preventDefault();
         $('.quiz-container').toggle();
